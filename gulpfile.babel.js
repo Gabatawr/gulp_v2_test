@@ -8,4 +8,4 @@ export const build = () => {
 
 export const test = () => {
   console.log(config.isProd);
-}
+};
