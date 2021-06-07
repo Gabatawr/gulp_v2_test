@@ -17,5 +17,8 @@
         "empty-line-between-groups": true
       }
     ]
-  }
+  },
+  "ignoreFiles": [
+    "./src/scss/generated/*.scss"
+  ]
 }
