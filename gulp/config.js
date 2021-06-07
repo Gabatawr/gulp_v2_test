@@ -1,5 +1,5 @@
 const srcPath = 'src';
-const destPath = 'dest';
+const destPath = 'build';
 
 const config = {
   src: {

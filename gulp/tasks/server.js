@@ -17,7 +17,9 @@ const server = (callback) => {
         },
       },
     ],
+    browser: 'chrome',
     open: false,
+    reloadOnRestart: true,
     notify: false,
   });
 

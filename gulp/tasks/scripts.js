@@ -15,10 +15,10 @@ export const scriptsBuild = () => (
       console.log(error.stack);
       this.emit('end');
     })
-    .pipe(source('main.js'))
+    .pipe(source('main.min.js'))
     .pipe(buffer())
     .pipe(gulpif(config.isDev, sourcemaps.init({ loadMaps: true })))
-    .pipe(gulpif(config.isPdor, uglify()))
+    .pipe(gulpif(config.isProd, uglify()))
     .pipe(gulpif(config.isDev, sourcemaps.write()))
     .pipe(gulp.dest(config.dest.js))
 );

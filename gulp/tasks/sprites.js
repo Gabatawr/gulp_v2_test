@@ -3,10 +3,12 @@ import svgSprite from 'gulp-svg-sprite';
 import config from '../config';
 
 const spriteMono = () => (
-  gulp.src(`${config.src.iconMono}/**/*.svg`)
+  gulp.src(`${config.src.iconsMono}/**/*.svg`)
     .pipe(svgSprite({
       mode: {
-        symbol: '../sprites/sprite-mono.svg',
+        symbol: {
+          sprite: '../sprites/sprite-mono.svg',
+        },
       },
       shape: {
         transform: [
@@ -15,7 +17,7 @@ const spriteMono = () => (
               plugins: [
                 {
                   removeAttrs: {
-                    attrs: ['class', 'data-name', 'fill', 'stroke.*'],
+                    attrs: ['class', 'data-name', 'fill.*', 'stroke.*'],
                   },
                 },
               ],
@@ -28,10 +30,12 @@ const spriteMono = () => (
 );
 
 const spriteMulti = () => (
-  gulp.src(`${config.src.iconMulti}/**/*.svg`)
+  gulp.src(`${config.src.iconsMulti}/**/*.svg`)
     .pipe(svgSprite({
       mode: {
-        symbol: '../sprites/sprite-multi.svg',
+        symbol: {
+          sprite: '../sprites/sprite-multi.svg',
+        },
       },
       shape: {
         transform: [
@@ -58,9 +62,9 @@ const spriteMulti = () => (
     .pipe(gulp.dest(config.dest.images))
 );
 
-export const spritesBuild = () => gulp.parallel(spriteMono, spriteMulti);
+export const spritesBuild = gulp.parallel(spriteMono, spriteMulti);
 
 export const spritesWatch = () => {
-  gulp.watch(`${config.src.iconMono}/**/*.svg`, spriteMono);
-  gulp.watch(`${config.src.iconMulti}/**/*.svg`, spriteMulti);
+  gulp.watch(`${config.src.iconsMono}/**/*.svg`, spriteMono);
+  gulp.watch(`${config.src.iconsMulti}/**/*.svg`, spriteMulti);
 };
