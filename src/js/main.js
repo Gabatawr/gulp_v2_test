@@ -1,3 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log(1);
+import 'focus-visible';
+import lazyImages from './modules/lazyImages';
+import documentReady from './helpers/documentReady';
+
+documentReady(() => {
+  lazyImages();
 });
