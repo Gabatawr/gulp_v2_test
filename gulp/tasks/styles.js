@@ -8,7 +8,6 @@ import rename from 'gulp-rename';
 import gulpif from 'gulp-if';
 import smartGrid from 'smart-grid';
 import importFresh from 'import-fresh';
-// import sassGlob from 'gulp-sass-glob';
 import config from '../config';
 
 const SMART_GRID_CONFIG_NAME = 'smart-grid-config.js';
@@ -16,7 +15,6 @@ const SMART_GRID_CONFIG_NAME = 'smart-grid-config.js';
 const sassBuild = () => (
   gulp.src(`${config.src.sass}/main.scss`, { sourcemaps: config.isDev })
     .pipe(plumber())
-    // .pipe(sassGlob())
     .pipe(sass({
       outputStyle: 'expanded',
       includePaths: ['./node_modules'],
