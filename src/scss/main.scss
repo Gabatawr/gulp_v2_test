@@ -1,7 +1,11 @@
-@import './generated/smartgrid';
+@use './generated/smartgrid.scss' as sg;
 
-// @import 'normalize.css/normalize.css';
+.test {
+  @include sg.wrapper-full();
+}
 
-// .js-focus-visible :focus:not(.focus-visible) {
-//   outline: none;
-// }
+// @import 'normalize.css/normalize';
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
