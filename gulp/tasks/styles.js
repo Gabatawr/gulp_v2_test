@@ -1,13 +1,13 @@
 import gulp from 'gulp';
-import sass from 'gulp-dart-sass';
+import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
+import sass from 'gulp-dart-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import gcmq from 'gulp-group-css-media-queries';
 import cleanCSS from 'gulp-clean-css';
-import rename from 'gulp-rename';
-import gulpif from 'gulp-if';
 import smartGrid from 'smart-grid-sass-use';
 import importFresh from 'import-fresh';
+import rename from 'gulp-rename';
 import config from '../config';
 
 const SMART_GRID_CONFIG_NAME = 'smart-grid-config.js';
@@ -17,7 +17,10 @@ const sassBuild = () => (
     .pipe(plumber())
     .pipe(sass({
       outputStyle: 'expanded',
-      includePaths: ['./node_modules'],
+      includePaths: [
+        './node_modules',
+        './src/scss',
+      ],
     }))
     .pipe(gulpif(config.isProd, gcmq()))
     .pipe(gulpif(config.isProd, autoprefixer()))

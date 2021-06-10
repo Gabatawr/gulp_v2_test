@@ -1,11 +1,7 @@
-@use './generated/smartgrid.scss' as sg;
-
-.test {
-  @include sg.wrapper-full();
-}
-
-// @import 'normalize.css/normalize';
-
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
-}
+@use 'generated/smartgrid' as grid;
+@use 'helpers/variables' as var;
+@use 'helpers/functions' as fun;
+@use 'helpers/mixins' as mix;
+@use 'base/base' as *;
+@use 'layout';
+@use 'components';
