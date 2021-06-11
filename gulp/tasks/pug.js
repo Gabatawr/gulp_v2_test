@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
 import pug from 'gulp-pug';
+import pugGlob from 'pug-include-glob';
 import { setup as emittySetup } from '@zoxon/emitty';
 import config from '../config';
 
@@ -29,7 +30,7 @@ export const pugBuild = () => (
         ),
       ),
     )
-    .pipe(pug({ pretty: true }))
+    .pipe(pug({ pretty: true, plugins: [pugGlob()] }))
     .pipe(gulp.dest(`${config.dest.html}`))
 );
 
